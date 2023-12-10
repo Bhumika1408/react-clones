@@ -42,9 +42,14 @@ function LeftFold() {
             <i class="fi-rr-play-alt"></i>
           </div>
         </div>
-      </div>
+      </div>  
     </div>
   );
 }
+import { runQuery } from '../data/calls';
 
+// Example usage
+const getUsersQuery = 'SELECT * FROM Users';
+const users = await runQuery(getUsersQuery);
+console.log(users);                                                                                                                                  
 export default LeftFold;
