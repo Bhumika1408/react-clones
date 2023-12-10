@@ -90,3 +90,25 @@ export const CallsContact = [
     avatar: "https://image.flaticon.com/icons/png/128/219/219969.png",
   },
 ];
+// src/components/data/calls.js
+
+const BASE_URL = 'http://localhost:3000';
+
+// Function to run a query on the backend
+export const runQuery = async (query) => {
+  try {
+    const response = await fetch(`${BASE_URL}/runQuery`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query }),
+    });
+
+    const data = await response.json();
+    return data.result;
+  } catch (error) {
+    console.error('Error running query:', error);
+    throw error;
+  }
+};
